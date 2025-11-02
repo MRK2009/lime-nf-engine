@@ -2,11 +2,11 @@ name: iOS CI
 on: workflow_dispatch
 
 env:
-  HAXE_VERSION: 4.3.5
+  HAXE_VERSION: 4.3.7
 
 jobs:
   ios:
-    runs-on: macos-13
+    runs-on: macos-14
     steps:
       - uses: actions/checkout@v3
       - uses: krdlab/setup-haxe@master
