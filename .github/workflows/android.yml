@@ -2,7 +2,7 @@ name: Android CI
 on: workflow_dispatch
 
 env:
-  HAXE_VERSION: 4.3.5
+  HAXE_VERSION: 4.3.7
 
 jobs:
   android:
@@ -21,7 +21,7 @@ jobs:
           echo "HAXEPATH=$HAXE_STD_PATH/.." >> $GITHUB_ENV
       - name: Install Haxe dependencies
         run: |
-          haxelib git hxcpp https://github.com/mcagabe19-stuff/hxcpp --quiet
+          haxelib git hxcpp https://github.com/NovaFlare-Engine-haxelib/hxcpp-legacy --quiet
           haxelib install format --quiet
           haxelib install hxp --quiet
       - name: Enable HXCPP compile cache
