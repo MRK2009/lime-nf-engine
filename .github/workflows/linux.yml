@@ -35,14 +35,14 @@ jobs:
         run: |
           lime rebuild linux -32 -release -nocolor -nocffi -eval
           lime rebuild linux -64 -release -nocolor -nocffi -eval
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: Linux-NDLL
           path: |
             ndll/Linux/
             !**/.gitignore
           if-no-files-found: error
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: Linux64-NDLL
           path: |
