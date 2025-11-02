@@ -2,11 +2,11 @@ name: Mac CI
 on: workflow_dispatch
 
 env:
-  HAXE_VERSION: 4.3.5
+  HAXE_VERSION: 4.3.7
 
 jobs:
   mac:
-    runs-on: macos-13
+    runs-on: macos-14
     steps:
       - uses: actions/checkout@v3
       - uses: krdlab/setup-haxe@master
@@ -17,7 +17,7 @@ jobs:
           echo "HAXEPATH=$HAXE_STD_PATH/.." >> $GITHUB_ENV
       - name: Install Haxe dependencies
         run: |
-          haxelib git hxcpp https://github.com/mcagabe19-stuff/hxcpp --quiet
+          haxelib git hxcpp https://github.com/NovaFlare-Engine-haxelib/hxcpp-legacy --quiet
           haxelib install format --quiet
           haxelib install hxp --quiet
       - name: Enable HXCPP compile cache
@@ -29,15 +29,7 @@ jobs:
           haxelib run lime setup -alias -y -nocffi
       - name: Rebuild Lime (Mac)
         run: |
-          # lime rebuild mac -32 -release -nocolor -nocffi -eval
           lime rebuild mac -64 -release -nocolor -nocffi -eval
-      # - uses: actions/upload-artifact@v3
-        # with:
-          # name: Mac-NDLL
-          # path: |
-            # ndll/Mac/
-            # !**/.gitignore
-          # if-no-files-found: error
       - uses: actions/upload-artifact@v3
         with:
           name: Mac64-NDLL
@@ -57,7 +49,7 @@ jobs:
           echo "HAXEPATH=$HAXE_STD_PATH/.." >> $GITHUB_ENV
       - name: Install Haxe dependencies
         run: |
-          haxelib git hxcpp https://github.com/mcagabe19-stuff/hxcpp --quiet
+          haxelib git hxcpp https://github.com/NovaFlare-Engine-haxelib/hxcpp-legacy --quiet
           haxelib install format --quiet
           haxelib install hxp --quiet
       - name: Enable HXCPP compile cache
