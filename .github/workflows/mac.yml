@@ -30,7 +30,7 @@ jobs:
       - name: Rebuild Lime (Mac)
         run: |
           lime rebuild mac -64 -release -nocolor -nocffi -eval
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: Mac64-NDLL
           path: |
@@ -62,7 +62,7 @@ jobs:
       - name: Rebuild Lime (Mac)
         run: |
           lime rebuild mac -arm64 -release -nocolor -nocffi -eval -D HXCPP_ARM64
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: MacArm64-NDLL
           path: |
